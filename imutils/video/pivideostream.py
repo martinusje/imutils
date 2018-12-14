@@ -5,14 +5,14 @@ from threading import Thread
 import cv2
 
 class PiVideoStream:
-	def __init__(self, resolution=(320, 240), framerate=32, awb_gain=0, exposure_mode='auto'):
+	def __init__(self, resolution=(320, 240), framerate=32, awb_gains=0, exposure_mode='auto'):
 		# initialize the camera and stream
 		self.camera = PiCamera()
 		self.camera.resolution = resolution
 		self.camera.framerate = framerate
 		if (awb_gain != 0):
 			self.camera.awb_mode = 'off'
-			self.camera.awb_gain = awb_gain
+			self.camera.awb_gains = awb_gains
 		self.camera.exposure_mode = exposure_mode
 		self.rawCapture = PiRGBArray(self.camera, size=resolution)
 		self.stream = self.camera.capture_continuous(self.rawCapture,

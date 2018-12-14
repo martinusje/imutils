@@ -10,7 +10,7 @@ class PiVideoStream:
 		self.camera = PiCamera()
 		self.camera.resolution = resolution
 		self.camera.framerate = framerate
-		if (awb_gain != 0):
+		if (awb_gains != 0):
 			self.camera.awb_mode = 'off'
 			self.camera.awb_gains = awb_gains
 		self.camera.exposure_mode = exposure_mode
